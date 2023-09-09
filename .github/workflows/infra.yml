@@ -1,0 +1,17 @@
+name: Yaml checker
+
+on:
+  pull_request:
+
+jobs:
+  yamlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install yamlint
+        run: |
+          apt-get update && apt-get install -y yamllint
+      - name: Run yamlint
+        run: |
+          cd infra && yamllint .
