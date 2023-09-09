@@ -2,7 +2,8 @@ name: Yaml checker
 
 on:
   pull_request:
-
+    paths:
+      - 'infra/**'
 jobs:
   yamlint:
     runs-on: ubuntu-latest
